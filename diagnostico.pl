@@ -1,6 +1,3 @@
-:- discontiguous praga/2.
-:- discontiguous doenca/2.
-
 % Pragas em soja
 praga(soja, lagarta).
 praga(soja, percevejo).
@@ -190,25 +187,3 @@ cultura_afetada(milho, murcha_fusarium_milho).
 cultura_afetada(milho, antracnose_milho).
 cultura_afetada(milho, podridao_carvao_milho).
 cultura_afetada(milho, mofo_branco_milho).
-
-% Regras para diagnosticar pragas e doencas com base nos sintomas
-diagnosticar_praga(Cultura, Praga) :-
-    praga(Cultura, Praga),
-    sintoma(Praga, Sintoma),
-    write('Sintoma observado: '), write(Sintoma), nl.
-
-diagnosticar_doenca(Cultura, Doenca) :-
-    doenca(Cultura, Doenca),
-    sintoma(Doenca, Sintoma),
-    write('Sintoma observado: '), write(Sintoma), nl.
-
-% Diagnostico com base nos sintomas fornecidos
-diagnosticar(Cultura, Sintoma) :-
-    praga(Cultura, Praga),
-    sintoma(Praga, Sintoma),
-    write('A praga diagnosticada e: '), write(Praga), nl.
-    
-diagnosticar(Cultura, Sintoma) :-
-    doenca(Cultura, Doenca),
-    sintoma(Doenca, Sintoma),
-    write('A doenca diagnosticada e: '), write(Doenca), nl.
